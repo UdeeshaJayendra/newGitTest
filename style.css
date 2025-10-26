@@ -1,0 +1,248 @@
+header {
+    padding: 20px;
+    background-image: url(img/hero.jpg);
+    background-size: 100%;
+    background-position: center;
+    background-color: black;
+    text-align: center;
+  }
+  
+  header a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+  
+  header .mobile {
+    display: none;
+  }
+  
+  header a:hover {
+    color: rgb(202, 198, 198); /* Brightens the link on hover */
+  }
+  header li:not(.logo) a {
+    margin: 0 40px;
+    font-weight: bold;
+  }
+  
+  header .logo a {
+    background-image: url("img/logo.png");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    display: block;
+    height: 180px;
+    position: relative;
+    top: -100px;
+    background-size: contain;
+    background-position: center;
+    text-indent: -999999px;
+  
+    width: 500px;
+  }
+  
+  section {
+    background: white;
+    color: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media screen and (max-width: 1235px) {
+    /* --- 1. Show/hide links --- */
+    header .mobile {
+      display: inline-block;
+    }
+  
+    header .desktop {
+      display: none;
+    }
+  
+    /* --- 2. Tell the 'ul' to wrap items --- */
+    ul {
+      flex-wrap: wrap;
+      /* (Make sure 'flex-direction: column' is deleted) */
+    }
+  
+    /* --- 3. Make the logo first AND take 100% width --- */
+    header li.logo {
+      order: -1;
+      width: 100%;
+    }
+  
+    /* --- 4. Reset the logo's position and margins --- */
+    header .logo a {
+      position: static;
+      top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-top: 0; /* <-- THIS FIXES THE LOGO PUSH-DOWN */
+  
+      height: 150px;
+      width: 300px;
+    }
+  
+    /* --- 5. ADD THIS NEW RULE for the text links --- */
+    header li:not(.logo) a {
+      /* This overrides both desktop margins and gives them 
+             10px top/bottom and 15px left/right spacing. */
+      margin: 10px 15px;
+    }
+  }
+  
+  /* FEATURES */
+  
+  li {
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  footer {
+    background: black;
+    padding: 10px 20px;
+    color: wheat;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-between; /* This evenly spaces your items */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on small screens */
+    padding: 20px 0px 20px 0px;
+  }
+  
+  /* This targets each <figure> item */
+  .features figure {
+    width: 30%; /* Sets each item to take up roughly 1/3 of the space */
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a nice shadow */
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: rgb(84, 83, 83) 5px 5px 5px;
+  }
+  
+  /* This makes your images responsive */
+  .features figure img {
+    width: 100%; /* Makes the image fill the figure's width */
+    height: 350px; /* <-- ADD THIS: A fixed height for all images */
+    object-fit: cover; /* <-- ADD THIS: Prevents distortion */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: block;
+  }
+  
+  /* This styles the caption */
+  .features figure figcaption {
+    padding: 15px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  footer {
+    background: black;
+    padding: 30px 40px; /* Added more vertical padding */
+    color: wheat;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  footer address,
+  footer .contact-info,
+  footer .copyright {
+    margin-bottom: 15px; /* Adds space between the lines */
+  }
+  
+  /* Style the footer links to match the 'wheat' text color */
+  footer a {
+    color: wheat;
+    text-decoration: none; /* Removes the default underline */
+  }
+  
+  /* Add a hover effect for better user experience */
+  footer a:hover {
+    color: white; /* Brightens the link on hover */
+    text-decoration: underline;
+  }
+  
+  /* Hides the bullet separator */
+  footer .separator {
+    margin: 0 10px;
+  }
+  
+  @media screen and (max-width: 645px) {
+    /* --- 1. Show/hide links --- */
+    header .mobile {
+      display: inline-block;
+    }
+  
+    header .desktop {
+      display: none;
+    }
+  
+    /* --- 5. Make each text link item full-width to stack them --- */
+    header li:not(.logo) {
+      width: 100%; /* Forces each link onto a new line */
+      text-align: center; /* Centers the text */
+    }
+  
+    header li:not(.logo) a {
+      /* This styles the link itself for better spacing and clicking */
+      margin: 0; /* Reset any desktop margins */
+      padding: 10px 0; /* Adds 10px space above/below each link */
+      display: block; /* Makes the whole area clickable */
+    }
+  
+    .features {
+      flex-direction: column;
+      align-items: center; /* This will horizontally center the items */
+      background-color: rgb(22, 22, 22);
+    }
+  
+    /* 2. Make each figure wider for the new vertical stack */
+    .features figure {
+      width: 90%; /* Sets each item to take up roughly 1/3 of the space */
+      margin: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a nice shadow */
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: rgb(84, 83, 83) 5px 5px 5px;
+    }
+  
+    .features figure img {
+      width: 95%; /* Makes the image fill the figure's width */
+      height: 350px; /* <-- ADD THIS: A fixed height for all images */
+      object-fit: cover; /* <-- ADD THIS: Prevents distortion */
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      display: block;
+    }
+  
+    /* This styles the caption */
+    .features figure figcaption {
+      padding: 15px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  
+    header {
+      padding: 20px;
+      background-image: url(img/hero.jpg);
+      background-position: center;
+      background-color: black; /* Fallback color */
+      text-align: center;
+  
+      /* --- ADD/CHANGE THESE TWO LINES --- */
+      background-repeat: no-repeat;
+      background-size: cover; /* This replaces 'background-size: 100%;' */
+    }
+  }
+  
